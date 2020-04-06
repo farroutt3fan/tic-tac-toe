@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
@@ -15,7 +19,8 @@ ul {
 }
 
 .status {
-  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .square {
@@ -48,4 +53,46 @@ ul {
 
 .game-info {
   margin-left: 20px;
+}
+
+.x-color {
+  color: #008500;
+}
+
+.o-color {
+  color: #0000af;
+}
+
+@supports (grid-area: auto) {
+  .tic-tac-toe-board {
+    display: grid;
+    grid-template-columns: repeat(3, 34px);
+    grid-template-rows: repeat(3, 34px);
+  }
+
+  .board-row {
+    grid-column: 1 / span 3;
+  }
+
+  .board-row:first-of-type {
+    grid-row: 1;
+  }
+
+  .board-row:nth-of-type(2) {
+    grid-row: 2;
+  }
+
+  .board-row:last-of-type {
+    grid-row: 3;
+  }
+
+  .board-row:after {
+    display: none;
+  }
+
+  .square {
+    line-height: 1em;
+    margin-right: 0;
+    margin-top: 0;
+  }
 }
