@@ -12,6 +12,10 @@ ul {
   padding-left: 30px;
 }
 
+li {
+  margin: 0.5em;
+}
+
 .board-row:after {
   clear: both;
   content: "";
@@ -19,23 +23,34 @@ ul {
 }
 
 .status {
+  font-size: 1.5em;
   font-weight: bold;
   text-align: center;
 }
 
 .square {
   background: #fff;
-  border: 1px solid #999;
+  border: none;
   float: left;
-  font-size: 24px;
+  font-size: 48px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 68px;
+  height: 68px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 68px;
+}
+
+.board-row:nth-child(2) button:nth-of-type(1n + 1) {
+  border-bottom: 2px solid #000;
+  border-top: 2px solid #000;
+}
+
+button:nth-of-type(2) {
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
 }
 
 .square:focus {
@@ -63,11 +78,42 @@ ul {
   color: #0000af;
 }
 
+.winner-color {
+  background-color: rgba(255, 217, 0, 0.5);
+}
+
+.move-button {
+  background-color: transparent;
+  border: 1px solid rgb(86, 86, 90);
+  border-radius: 4px;
+  color: rgb(86, 86, 90);
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.move-button:hover {
+  background-color: rgb(9, 98, 158);
+  color: #fff;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 @supports (grid-area: auto) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .game {
+    grid-column: 2 / 3;
+  }
+
   .tic-tac-toe-board {
     display: grid;
-    grid-template-columns: repeat(3, 34px);
-    grid-template-rows: repeat(3, 34px);
+    grid-template-columns: repeat(3, 68px);
+    grid-template-rows: repeat(3, 68px);
   }
 
   .board-row {
